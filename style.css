@@ -1,0 +1,255 @@
+body {
+    margin: 0;
+}
+html {
+    box-sizing: border-box;
+}
+*,
+*:after,
+*:before {
+    box-sizing: inherit;
+}
+.wrapper {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    max-width: 100%;
+    padding: 0 15px;
+    margin: 0 auto;
+}
+img {
+    max-width: 100%;
+    height: auto;
+    vertical-align: top;
+}
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.5s;
+}
+.title:hover {
+    color: #9d4088;
+    transition: all 0.5s;
+}
+
+.header {
+    background: #d4b80c;
+    padding: 20px 0;
+    position: relative;
+}
+.header-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.logo {
+    position: relative;
+    align-self: flex-start;
+    max-height: 50px;
+}
+.nav {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+.nav-list {
+    display: flex;
+    align-items: center;
+    position: static;
+    opacity: 1;
+    visibility: visible;
+}
+.nav-item + .nav-item {
+    /* отступы начиная со второго */
+    padding-left: 30px;
+}
+.nav-link {
+    color: black;
+}
+.nav-link:hover {
+    opacity: 0.7;
+}
+.main {
+    display: flex;
+    flex-grow: 1;
+}
+.sidebar {
+    flex: 0 0 210px;
+    padding: 20px;
+    text-align: center;
+}
+.sidebar-left {
+    background: #c899ba;
+    order: -1;
+}
+.sidebar-right {
+    background: #9cb2c7;
+}
+.content {
+    padding: 20px;
+    width: calc(100% - 300px);
+    min-width: 210px;
+    /* Если меньше контента, чтоб не сьехал */
+    text-align: center;
+}
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -15px;
+    justify-content: space-around;
+}
+.col {
+    width: 33.333%;
+    min-width: 300px;
+    padding: 0 15px 30px;
+}
+.card {
+    outline: 1px solid black;
+    border-radius: 20px;
+    padding: 15px;
+    text-align: center;
+    min-height: 450px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.card:hover {
+    outline: 5px solid #594855;
+    transition: all 0.5s;
+}
+.card-body {
+    flex-grow: 2;
+}
+.test {
+    display: inline-block;
+    height: 120px;
+    width: 120px;
+    border-radius: 50%;
+    margin: 5px auto 15px;
+    background: #9cb2c7;
+}
+.card-image {
+    display: inline-block;
+    height: 100px;
+    width: 100px;
+    background: url(images/lake.png);
+    background-size: cover;
+    border-radius: 50%;
+    margin: 10px auto 15px;
+}
+.card-image:hover {
+    height: 120px;
+    width: 120px;
+    margin: 0px auto 0px;
+}
+.btn {
+    display: inline-block;
+    height: 30px;
+    width: 50px;
+    border-radius: 15px;
+    color: white;
+    background-color: #594855;
+    padding: 5px;
+    transition: all 1s;
+}
+.btn:hover {
+    background-color: #9d4088;
+    transition: all 1s;
+}
+
+.footer {
+    padding: 20px;
+    background: #84e784;
+    text-align: center;
+}
+#burger {
+    visibility: hidden;
+}
+@media (max-width: 1050px) {
+    .content {
+        width: auto;
+    }
+    .col {
+        width: 40%;
+    }
+    .sidebar-left {
+        display: none;
+    }
+    .sidebar-right {
+        display: none;
+    }
+}
+@media (max-width: 767px) {
+    .nav-list {
+        position: absolute;
+        display: block;
+        top: 100%;
+        background: #d4b80c;
+        text-align: center;
+        left: 0;
+        right: 0;
+        opacity: 0;
+        visibility: hidden;
+    }
+    .nav-item + .nav-item {
+        padding: 0;
+    }
+    .nav-item {
+        margin-bottom: 15px;
+    }
+    .opener {
+        cursor: pointer;
+        position: relative;
+        width: 16px;
+        height: 17px;
+    }
+
+    .opener:before,
+    .opener:after,
+    .opener span {
+        position: absolute;
+        content: '';
+        height: 3px;
+        background: black;
+        left: 0;
+        right: 0;
+    }
+    .opener::before {
+        top: 0;
+    }
+    .opener:after {
+        bottom: 0;
+    }
+    .opener span {
+        top: 6px;
+    }
+    #burger:checked ~ .nav-list {
+        transition: opacity 0.3s ease-in-out;
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+@media (max-width: 575px) {
+    .content {
+        padding: 15px;
+    }
+    .col {
+        padding: 15px;
+    }
+    .card {
+        min-height: fit-content;
+    }
+}
